@@ -27,7 +27,7 @@ if($requestCount -ge 8)
 else{
     $uri = "https://webknox-jokes.p.mashape.com/jokes/random"
     $headers = @{"X-Mashape-Key" = $env:JokesAPIKey; "Accept" = "application/json"}
-    #$response = Invoke-WebRequest -Headers $headers -Uri $uri
+    $response = Invoke-WebRequest -Headers $headers -Uri $uri
 
     $requestCount = 1 + $requestCount
     $requestCount | out-file -FilePath $requestCountFileName
