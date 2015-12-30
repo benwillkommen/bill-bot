@@ -1,4 +1,14 @@
-﻿Add-Type -AssemblyName System.speech
+﻿import-module ($psscriptroot + "\lib\movewindow.ps1")
+import-module ($psscriptroot + "\lib\embiggen.ps1")
+import-module ($psscriptroot + "\lib\SetConsoleFont.psm1")
+
+set-consolefont 0
+move-window
+embiggen
+
+get-content ($psscriptroot + "\data\bill-ascii.txt")
+
+Add-Type -AssemblyName System.speech
 $speak = New-Object System.Speech.Synthesis.SpeechSynthesizer
 
 $requestCountFileName = ".\request-count-" + (Get-Date -Format "dd-MM-yyyy") + ".txt"
